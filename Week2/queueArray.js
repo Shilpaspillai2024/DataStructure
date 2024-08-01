@@ -26,6 +26,18 @@ class Queue{
     print(){
         console.log(this.items.toString())
     }
+
+    reverse(){
+        let stack=[]
+
+        while(!this.isEmpty()){
+            stack.push(this.dequeue())
+        }
+
+        while(stack.length>0){
+            this.enqueue(stack.pop())
+        }
+    }
 }
 
 const queue=new Queue()
@@ -39,3 +51,6 @@ queue.print()
 console.log(queue.size())
 console.log(queue.dequeue())
 queue.print()
+console.log("Reversed Queue:");
+queue.reverse()
+queue.print();

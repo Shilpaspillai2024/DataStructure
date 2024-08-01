@@ -1,21 +1,24 @@
-function quickSort(arr){
+// sort the array of strings using quick sort
+function strQuick(arr){
     if(arr.length<2){
         return arr
     }
-
     let pivot=arr[arr.length-1]
     let left=[]
     let right=[]
+   
 
     for(let i=0;i<arr.length-1;i++){
         if(arr[i]<pivot){
             left.push(arr[i])
-        }else{
+        }else {
             right.push(arr[i])
-        }
+        } 
     }
-    return[...quickSort(left),pivot,...quickSort(right)]
-}
-const arr=[8,20,-2,4,-6,11,3]
+    return [...strQuick(left),pivot,...strQuick(right)]
 
-console.log(quickSort(arr))
+}
+
+const arr=['apple','orange','pineapple','grape']
+
+console.log(strQuick(arr))
