@@ -128,6 +128,28 @@ class linkedlist {
         }
     }
 
+    removeDuplicates(){
+        if(this.isEmpty()){
+            return
+        }
+            let seenValues=new Set()
+            let curnt=this.head
+            let prev=null
+
+            while(curnt){
+                if(seenValues.has(curnt.value)){
+                    prev.next=curnt.next
+                    this.size--
+
+                }else{
+                    seenValues.add(curnt.value)
+                    prev=curnt;
+                }
+                curnt=curnt.next
+            }
+        
+    }
+
     print() {
         if (this.isEmpty()) {
             console.log("list is empty")
@@ -168,12 +190,15 @@ const list = new linkedlist()
 //insert
 
 list.insert(20, 0)
-list.print()
+// list.print()
 list.insert(10, 0)
-list.print()
+// list.print()
 list.insert(30, 1)
-list.print()
+// list.print()
 list.insert(40, 2)
+list.append(40)
+list.print()
+list.removeDuplicates()
 list.print()
 // console.log(list.getSize())
 
